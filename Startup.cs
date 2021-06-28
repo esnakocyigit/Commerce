@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Commerce.Context;
+using Commerce.Services;
 
 namespace Commerce
 {
@@ -21,6 +22,7 @@ namespace Commerce
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<UserService>();
 
             services.AddDbContext<CommerceDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("CommerceContext")));
