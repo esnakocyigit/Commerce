@@ -23,10 +23,11 @@ namespace Commerce
         {
             services.AddControllers();
             services.AddScoped<UserService>();
+            services.AddScoped<ProductService>();
+
 
             services.AddDbContext<CommerceDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("CommerceContext")));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
